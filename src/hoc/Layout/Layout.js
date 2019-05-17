@@ -6,13 +6,19 @@ import Drawer from '../../components/Navigation/Drawer/Drawer';
 class Layout extends React.Component {
     state = {
         menu: false
-    }
+    };
 
     toggleMenuHandler = () => {
         this.setState({
             menu: !this.state.menu
         })
-    }
+    };
+
+    menuCloseHandler = () => {
+        this.setState({
+            menu: false
+        })
+    };
 
 
     render() {
@@ -24,6 +30,7 @@ class Layout extends React.Component {
                 />
                 <Drawer
                     isOpen={this.state.menu}
+                    onClose={this.menuCloseHandler}
                 />
                 <main>
                     {this.props.children}
