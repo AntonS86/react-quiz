@@ -1,10 +1,10 @@
 import React from 'react';
 import classes from './QuizList.module.css';
 import {NavLink} from 'react-router-dom';
-import Quiz from "../Quiz/Quiz";
 
 
 export default class QuizList extends React.Component {
+
     renderQuizes() {
         return [1, 2, 3].map((quiz, index) => {
             return (
