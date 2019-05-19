@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default class QuizCreater extends React.Component {
+export default class QuizCreator extends React.Component {
     render() {
         return (
             <div>
