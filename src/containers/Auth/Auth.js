@@ -70,6 +70,7 @@ export default class Auth extends React.Component {
         return isValid;
     }
 
+
     onChangeHandler = (event, controlName) => {
         const formControls        = {...this.state.formControls};
         const control             = {...formControls[controlName]};
