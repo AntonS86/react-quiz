@@ -4,6 +4,7 @@ import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import is from 'is_js';
 import axios from 'axios'
+import {key} from '../../Api/key';
 
 
 export default class Auth extends React.Component {
@@ -46,7 +47,7 @@ export default class Auth extends React.Component {
         }
         try {
 
-            const response = await axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDlcRN2TxqmrHyBO5SvsyXqQuo6nj2nGaY',
+            const response = await axios.post(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${key}`,
                 authData)
             console.log(response.data)
         } catch (e) {
@@ -62,7 +63,7 @@ export default class Auth extends React.Component {
         }
         try {
 
-            const response = await axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyDlcRN2TxqmrHyBO5SvsyXqQuo6nj2nGaY',
+            const response = await axios.post(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${key}`,
                 authData)
             console.log(response.data)
         } catch (e) {
