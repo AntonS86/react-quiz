@@ -13,7 +13,7 @@ import {autoLogin} from "./store/actions/auth";
 class App extends React.Component {
 
     componentDidMount() {
-        this.props.authLogin()
+        this.props.autoLogin()
     }
 
     render() {
@@ -22,7 +22,7 @@ class App extends React.Component {
             <Switch>
                 <Route path="/auth" component={Auth}/>
                 <Route path="/quiz/:id" component={Quiz}/>
-                <Route path="/" component={QuizList}/>
+                <Route path="/" exact component={QuizList}/>
                 <Redirect to='/'/>
             </Switch>
         )
@@ -32,8 +32,8 @@ class App extends React.Component {
                 <Switch>
                     <Route path="/quiz-creator" component={QuizCreate}/>
                     <Route path="/quiz/:id" component={Quiz}/>
-                    <Route path="/" component={QuizList}/>
                     <Route path="/logout" component={Logout}/>
+                    <Route path="/" exact component={QuizList}/>
                     <Redirect to='/'/>
                 </Switch>
             )
@@ -48,7 +48,6 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-    console.log('tok', state.auth.token)
     return {
         isAuthenticated: !!state.auth.token
     }
@@ -56,7 +55,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        authLogin: () => dispatch(autoLogin())
+        autoLogin: () => dispatch(autoLogin())
     }
 }
 
